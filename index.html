@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fine Sample Property</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Fine Sample Property</h1>
+        <p>If you lived here, you'd be in your pajamas writing code by now.<br></p>
+      </div>
+    </div>
+    <div class="row">
+        
+      <div class="col-md-3">
+        <div class="well">
+          <h4>Monty Python</h4>
+          <select id="dropdown" onchange="selectId(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">and the hallowed pandas</h3>
+          </div>
+          <div id="sample-metadata1" class="panel-body">
+            <div id="meta1"></div>
+            <div id="meta2"></div>
+            <div id="meta3"></div>
+            <div id="meta4"></div>
+            <div id="meta5"></div>
+            <div id="meta6"></div>
+            <div id="meta7"></div>
+          </div>
+        </div>
+      </div>
+        
+      <div class="col-md-6">
+        <!-- <h3>Bar Test Location</h3> -->
+        <div id="bar"></div>
+      </div>
+        
+      <div class="col-md-3">
+        <div class="well">
+          <h4>Sequel Delight</h4>
+          <select id="dropdown" onchange="selectId(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">in the afternoon feels right</h3>
+          </div>
+          <div id="sample-metadata1" class="panel-body">
+            <div id="meta1"></div>
+            <div id="meta2"></div>
+            <div id="meta3"></div>
+            <div id="meta4"></div>
+            <div id="meta5"></div>
+            <div id="meta6"></div>
+            <div id="meta7"></div>
+          </div>
+        </div>
+      </div><div class="col-md-12">
+        <!-- <h3>Gauge Test Location</h3> -->
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <h1>Huge Bubble Plot Test Header Location</h1> -->
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./static/js/app.js"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+  
+</body>
+
+</html>
