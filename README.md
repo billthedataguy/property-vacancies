@@ -9,8 +9,7 @@ Gregory Michalak
 John Torgerson
 
 ### File Index
-<gitignore> this file contians elements we want git to um, ignore
-    
+[Cleaning.ipynb] this file contains pandas code to filter a PMS report to a list of upcoming and available residential units by their unique property id<br>
 <Avail_8.19.csv> this file is a real PMS software download we'll use to filter available residential units
     
 <DUMMY_SHEET.xlsx> this file is a practice list of residential units and data files
