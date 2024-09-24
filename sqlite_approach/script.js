@@ -59,3 +59,28 @@ function wipeData() {
   location.reload();
   
 }
+
+function saveData() {
+
+  console.log(localStorage);
+
+
+
+}
+
+    // var recordLocalStored;
+  // var csvData = [];
+  
+  // for (var i=0; i<=localStorage.length; i++) {
+
+  //   recordLocalStored = [localStorage.getItem(localStorage.key(i))];
+    
+  //   if (recordLocalStored != null) {
+
+  //     csvData.push(recordLocalStored);
+
+  //   }  
+  // }
+
+  // var resultsDiv = document.querySelector("#resultsDiv");
+  // resultsDiv.innerHTML = "<br>" + csvData;
