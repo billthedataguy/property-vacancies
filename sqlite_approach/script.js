@@ -7,6 +7,8 @@ function processData() {
   var picsUrl = document.querySelector("#picsUrl").value;  
   var vacancyStatus = document.querySelector("#vacancyStatus").value;
   var resultsDiv = document.querySelector("#resultsDiv");
+
+  const now = new Date().toLocaleDateString(); 
    
   // Write the results to the div 
 
@@ -22,14 +24,14 @@ function processData() {
   var recordJSON = JSON.stringify(recordObject);
 
   // store record in localstorage
-  localStorage.setItem("Today_" + propertyId, recordJSON);
+  localStorage.setItem(now + "_" + propertyId, recordJSON);
 
-  resultsDiv.innerHTML += "<br>Record as string: " + recordString;
+  // resultsDiv.innerHTML += "<br>Record as string: " + recordString;
 
-  resultsDiv.innerHTML += "<br>Record as object: " + recordObject + " (see in console)";
-  console.log(recordObject);
+  // resultsDiv.innerHTML += "<br>Record as object: " + recordObject + " (see in console)";
+  // console.log(recordObject);
 
-  resultsDiv.innerHTML += "<br>Record as JSON: " + recordJSON;
+  // resultsDiv.innerHTML += "<br>Record as JSON: " + recordJSON;
   
 }
 
@@ -40,12 +42,13 @@ function reportData() {
   
   for (var i=0; i<=localStorage.length; i++) {
 
+    console.log(localStorage.length);
+
     recordLocalStored = localStorage.getItem(localStorage.key(i));
     
     if (recordLocalStored != null) {
 
       resultsDiv.innerHTML += "<br>" + recordLocalStored;
-      console.log(localStorage);
 
     }  
 
@@ -62,25 +65,17 @@ function wipeData() {
 
 function saveData() {
 
-  console.log(localStorage);
-
-
-
-}
-
-    // var recordLocalStored;
-  // var csvData = [];
+  var recordLocal;
   
-  // for (var i=0; i<=localStorage.length; i++) {
+  for (var i=0; i<=localStorage.length; i++) {
 
-  //   recordLocalStored = [localStorage.getItem(localStorage.key(i))];
+    recordLocal = localStorage.getItem(localStorage.key(i));
     
-  //   if (recordLocalStored != null) {
+    if (recordLocal != null) {
 
-  //     csvData.push(recordLocalStored);
-
-  //   }  
-  // }
-
-  // var resultsDiv = document.querySelector("#resultsDiv");
-  // resultsDiv.innerHTML = "<br>" + csvData;
+      console.log("RECORD #: " + localStorage.key(i) + " " + recordLocal);
+      
+    }  
+  
+  }
+}
