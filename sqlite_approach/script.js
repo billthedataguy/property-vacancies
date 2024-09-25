@@ -64,18 +64,52 @@ function wipeData() {
 }
 
 function saveData() {
-
-  var recordLocal;
+  var records = [];
   
-  for (var i=0; i<=localStorage.length; i++) {
-
-    recordLocal = localStorage.getItem(localStorage.key(i));
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var recordLocal = localStorage.getItem(key);
     
     if (recordLocal != null) {
-
-      console.log("RECORD #: " + localStorage.key(i) + " " + recordLocal);
-      
+      try {
+        var recordJSON = JSON.parse(recordLocal);
+        records.push(recordJSON);
+      } catch (e) {
+        console.error("Error parsing JSON for key:", key, e);
+      }
     }  
+  }
   
+  // Convert records to CSV
+  var csv = convertToCSV(records);
+  
+  // Trigger download
+  downloadCSV(csv);
+}
+
+function convertToCSV(records) {
+  if (records.length === 0) return '';
+  
+  var headers = Object.keys(records[0]).join(',') + '\n';
+  var rows = records.map(record => 
+    Object.values(record).map(value => 
+      `"${value}"`
+    ).join(',')
+  ).join('\n');
+  
+  return headers + rows;
+}
+
+function downloadCSV(csv) {
+  var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  var link = document.createElement("a");
+  if (link.download !== undefined) {
+    var url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "property_records.csv");
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
