@@ -21,6 +21,9 @@ John Torgerson
     
 
 ### Notes
+
+JT 9/29/2024: The directory 'Prototypying/templates are updated html code derived from Greg's flask api code templates reorganized as well as additinal input lines added to prepare for possible product demos.
+
 GJM 9/25/2024: The directory 'Greg_Code' was added and contains source code for creating a SQLite database of properties and CRUD operations via Flask API. The HTML files associated with the webpage design are located in the 'templates' subdirectory, with the current version being 'prop_index'. Run main.py to deploy the API on a web browser.
 
 ##### Initially we were looking at using something like Postgres and SQL, and we could potentially return to that, but for now we're going to make a first attempt at this using SQlite in hopes that the project runs smoother and quicker. We'll just have to see if the idea expands if we won't need more data table relations, and we may, as this PMS software contains a lot of other useful contact points we could utilize. 
