@@ -1,0 +1,63 @@
+html *
+{
+    font-family: "Roboto", sans-serif;
+}
+
+.select
+{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.italic 
+{
+    font-style: italic;
+}
+
+underline
+{
+    text-decoration: underline;
+}
+
+.sup
+{
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.sub
+{
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.tab
+{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.center 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile 
+{
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.btn-block 
+{
+    display: block;
+    width: 100%;
+}
+
+figure.model_arch {
+    float: left;
+    text-align: center;
+}
