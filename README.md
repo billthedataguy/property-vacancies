@@ -50,6 +50,8 @@ JT 9/29/2024: The directory 'Templates' are updated html code derived from Greg'
 
 GJM 9/25/2024: The directory 'Greg_Code' was added and contains source code for creating a SQLite database of properties and CRUD operations via Flask API. The HTML files associated with the webpage design are located in the 'templates' subdirectory, with the current version being 'prop_index'. Run main.py to deploy the API on a web browser.
 
+GJM 11/13/2024: A new version of "Greg_Code" was pushed this evening. No changes to the templates subdirectory. Prop_Cleaner.ipynb can ne used to clean the content of the property software output (currently Avail_8.19.csv), and the output is Available_Properties.xlsx. The main_prop.py file references Available_Properties.xlsx to get the list of properties it should display by finding the items the exist in both the avaialble properties and the full database, All_Proprties.db (SQlite DB).
+
 ##### Initially we were looking at using something like Postgres and SQL, and we could potentially return to that, but for now we're going to make a first attempt at this using SQlite in hopes that the project runs smoother and quicker. We'll just have to see if the idea expands if we won't need more data table relations, and we may, as this PMS software contains a lot of other useful contact points we could utilize. 
 
 
