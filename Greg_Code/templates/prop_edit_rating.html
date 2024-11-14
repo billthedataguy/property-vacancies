@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit House</title>
+  </head>
+  <body>
+    <form action="{{ url_for('edit') }}" method="POST">
+      <p>House ID: {{house.id}}</p>
+      <p>Current Size: {{house.SQFT}}</p>
+      <p>Current Market_Add: {{house.Market_Add}}</p>
+      <input hidden="hidden" name="id" value="{{house.id}}" />
+      <input name="SQFT" type="text" placeholder="New Size" />
+      <input name="Market_Add" type="text" placeholder="New Market_Add" />
+      <button type="submit">Edit House</button>
+      <a href="{{ url_for('home') }}">Return to Main Page</a>
+    </form>
+  </body>
+</html>

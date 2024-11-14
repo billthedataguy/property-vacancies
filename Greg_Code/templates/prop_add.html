@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Book</title>
+  </head>
+  <body>
+    <form action="{{ url_for('add') }}" method="POST">
+      <label>Property ID</label>
+      <input name="id" type="text" />
+      <label>SQFT</label>
+      <input name="SQFT" type="text" />
+      <label>Market_Add</label>
+      <input name="Market_Add" type="text" />
+      <button type="submit">Add Listing</button>
+      <a href="{{ url_for('home') }}">Return to Main Page</a>
+    </form>
+  </body>
+</html>

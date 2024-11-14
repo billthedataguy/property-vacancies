@@ -2,19 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>All Properties</title>
+    <title>Available Properties</title>
   </head>
   <body>
-    <h1>All Properties</h1>
+    <h1>Available Properties</h1>
     {% if houses == []: %}
     <p>Library is empty.</p>
     {% endif %}
     <ul>
       {% for house in houses %}
       <li>
-        <a href="{{ url_for('delete', id=house.id) }}">Delete</a>
+        
         {{house.id}} - Size: {{house.SQFT}} - Market Addition: {{house.Market_Add}}
-        <a href="{{ url_for('edit', id=house.id) }}">Edit</a>
         
       </li>
       {% endfor %}
@@ -31,8 +30,7 @@
 
     </ul>
 
-    <a href="{{ url_for('add') }}">Add New Listing</a>
-    <a href="{{ url_for('home') }}">See Available Listings</a>
+    <a href="{{ url_for('admin') }}">Go to Admin Page</a>
     
   </body>
 </html>
