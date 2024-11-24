@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Adding a New Listing to the Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+ 
+<body>
+    <div class="row">
+       <div class="col-md-12 jumbotron text-center">
+        <h1>Adding New Property Address Listing</h1>
+      </div>
+    </div>
+      
+    <div class="row"> 
+        
+      <div class="col-md-2">
+        <!-- Empty Location -->
+      </div>
+
+      <div class="col-md-8">
+        <div class="well">
+          <form action="{{ url_for('add') }}" method="POST">
+              <input name="address" type="text" />
+              <label>New Property Address</label><br>
+              <input name="photo" type="text" />
+              <label>Add Photo</label><br>
+              <input name="tour" type="text" />
+              <label>Add Virtual Tour Link</label><br>
+              <input name="floorplan" type="text" />
+              <label>Add Floorplan</label><br>
+              <br>
+              <button type="submit">Commit to Library</button>
+          </form>
+        </div>
+      </div>
+        
+      <div class="col-md-2">
+        <!-- Emoty Location -->
+      </div>
+    </div>      
+    
+    <div class="row">
+      <div class="col-md-1">
+        <!-- Emoty Location -->
+      </div>
+        
+      <div class="col-md-10">
+        <div class="well text-center">
+        <h4>Thank You For Using The Library</h4>
+      </div>
+      <div class="col-md-1">
+        <!-- Emoty Location -->
+      </div>
+          
+     </div>
+   
+    </div>
+      
+</body>
+    
+</html>

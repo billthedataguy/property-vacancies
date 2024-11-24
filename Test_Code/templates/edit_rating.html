@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Editting Item in Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+    
+<body>
+    <div class="row">
+       <div class="col-md-12 jumbotron text-center">
+        <h1>Editing Existing Property Address Listing</h1>
+      </div>
+    </div>
+    
+    <div class="row"> 
+      
+      <div class="col-md-2">
+        <!-- Empty Location -->
+      </div>
+      
+      <div class="col-md-8">
+        <div class="well">
+            <form action="{{ url_for('edit') }}" method="POST">
+              <p>Address: {{book.address}}</p>
+              <p>Current Photo {{book.photo}}</p>
+              <p>Current Tour {{book.tour}}</p>
+              <p>Current Floorplan {{book.floorplan}}</p>
+              <input hidden="hidden" name="id" value="{{book.id}}" />
+              <input name="address" type="text" placeholder="New Address" />
+              <button type="submit">Change Address</button><br>
+              <input hidden="hidden" name="id" value="{{book.id}}" />
+              <input name="photo" type="text" placeholder="New Photo" />
+              <button type="submit">Change Photo</button><br>
+              <input hidden="hidden" name="id" value="{{book.id}}" />
+              <input name="tour" type="text" placeholder="New Tour" />
+              <button type="submit">Change Tour</button><br>
+              <input hidden="hidden" name="id" value="{{book.id}}" />
+              <input name="floorplan" type="text" placeholder="New Floorplan" />
+              <button type="submit">Change Floorplan</button><br>
+            </form>
+          </div>
+        </div>
+          <div class="col-md-2">
+          <!-- Empty Location -->
+        </div>
+      </div>
+      
+      <div class="row">
+       <div class="col-md-1">
+        <!-- Emoty Location -->
+       </div>  
+      <div class="col-md-10">
+        <div class="well text-center">
+        <h4>Thank You For Using The Library</h4>
+      </div>
+       <div class="col-md-1">
+        <!-- Emoty Location -->
+       </div>
+      </div>
+    </div>
+      
+  </body>
+    
+</html>
