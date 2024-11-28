@@ -82,13 +82,14 @@ def admin():
     
     all_houses = result.scalars().all()
 
-    return render_template("prop_index.html", houses=all_houses)
+    return render_template("prop_index.html", houses=all_houses) #This is the Admin page - where you can view and edit/add all properties
     
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
     if request.method == "POST":
-        # CREATE RECORD
+        # CREATE RECORD for new house and specify the attributes
+        
         new_house = house(
             id=request.form["id"],
             SQFT=request.form["SQFT"],
@@ -97,7 +98,7 @@ def add():
         db.session.add(new_house)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template("prop_add.html")
+    return render_template("prop_add.html") #This is where we add a new property - inputs with edit boxes
 
 @app.route("/delete")
 def delete():
@@ -109,14 +110,14 @@ def delete():
     # book_to_delete = db.session.execute(db.select(Book).where(Book.id == book_id)).scalar()
     db.session.delete(house_to_delete)
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('home')) #Go back to homepage after deleting an item
 
 @app.route("/edit", methods=["GET", "POST"])
 def edit():
     if request.method == "POST":
         # UPDATE RECORD
         house_id = request.form["id"]
-        house_to_update = db.get_or_404(house, house_id)
+        house_to_update = db.get_or_404(house, house_id) #This house already exists, so we can do nothing to the field if it is blank
         
         if request.form['SQFT'] != '':
             house_to_update.SQFT = request.form["SQFT"]
@@ -129,7 +130,7 @@ def edit():
     
     house_id = request.args.get('id')
     house_selected = db.get_or_404(house, house_id)
-    return render_template("prop_edit_rating.html", house=house_selected)
+    return render_template("prop_edit_rating.html", house=house_selected) #This is where you would edit the property details
 
 if __name__ == "__main__":
     app.run(debug=True)

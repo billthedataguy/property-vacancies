@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Property Library</title>
+  <title>Available Properties</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -15,7 +15,7 @@
     
     <div class="row">
        <div class="col-md-12 jumbotron text-center">
-        <h1>Your Properties Library</h1>
+        <h1>Available Properties</h1>
       </div>
     </div>
     
@@ -95,32 +95,4 @@
     
     
     
-    <h1>Available Properties</h1>
-              {% if houses == []: %}
-              <p>Library is empty.</p>
-              {% endif %}
-              <ul>
-                {% for house in houses %}
-                <li>
-                  
-                  {{house.id}} - Size: {{house.SQFT}} - Market Addition: {{house.Market_Add}}
-                  
-                </li>
-                {% endfor %}
-
-              <!-- This just displays the resuls of the second table, "Prop"
-                {% for prop in props %}
-                <li>
-                  
-                  {{prop.id}} - Size: {{prop.SQFT}} - Market Addition: {{prop.Market_Add}}
-                  
-                </li>
-                {% endfor %}
-              -->
-
-              </ul>
-
-              <a href="{{ url_for('admin') }}">Go to Admin Page</a>
     
-  </body>
-</html>
