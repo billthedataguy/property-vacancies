@@ -38,14 +38,19 @@ db.init_app(app)
 # CREATE TABLE - the class name must match the name of the table in the SQL database
 class house(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    address: Mapped[float] = mapped_column(Float, nullable=True)
     SQFT: Mapped[float] = mapped_column(Float, nullable=True)
-    Market_Add: Mapped[float] = mapped_column(Float, nullable=True)
+    pic: Mapped[float] = mapped_column(Float, nullable=True)
+    tour: Mapped[float] = mapped_column(Float, nullable=True)
+    floorplan: Mapped[float] = mapped_column(Float, nullable=True)
 
 class Prop(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
+    address: Mapped[float] = mapped_column(Float, nullable=True)
     SQFT: Mapped[float] = mapped_column(Float, nullable=True)
-    Market_Add: Mapped[float] = mapped_column(Float, nullable=True)
-
+    pic: Mapped[float] = mapped_column(Float, nullable=True)
+    tour: Mapped[float] = mapped_column(Float, nullable=True)
+    floorplan: Mapped[float] = mapped_column(Float, nullable=True)
 
 # Create table schema in the database. Requires application context.
 with app.app_context():
@@ -82,7 +87,7 @@ def admin():
     
     all_houses = result.scalars().all()
 
-    return render_template("prop_index.html", houses=all_houses) #This is the Admin page - where you can view and edit/add all properties
+    return render_template("full_prop_index.html", houses=all_houses) #This is the Admin page - where you can view and edit/add all properties
     
 
 @app.route("/add", methods=["GET", "POST"])
@@ -92,13 +97,17 @@ def add():
         
         new_house = house(
             id=request.form["id"],
+            address=request.form["address"],
             SQFT=request.form["SQFT"],
-            Market_Add=request.form["Market_Add"]
+            pic=request.form["pic"],
+            tour=request.form["tour"],
+            floorplan=request.form["floorplan"]
+            
         )
         db.session.add(new_house)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template("prop_add.html") #This is where we add a new property - inputs with edit boxes
+    return render_template("add.html") #This is where we add a new property - inputs with edit boxes
 
 @app.route("/delete")
 def delete():
@@ -119,18 +128,27 @@ def edit():
         house_id = request.form["id"]
         house_to_update = db.get_or_404(house, house_id) #This house already exists, so we can do nothing to the field if it is blank
         
+        if request.form['address'] != '':
+            house_to_update.address = request.form["address"]
+        
         if request.form['SQFT'] != '':
             house_to_update.SQFT = request.form["SQFT"]
-        
-        if request.form['Market_Add'] != '':
-            house_to_update.Market_Add = request.form["Market_Add"]
+
+        if request.form['pic'] != '':
+            house_to_update.pic = request.form["pic"]
+
+        if request.form['tour'] != '':
+            house_to_update.tour = request.form["tour"]
+
+        if request.form['floorplan'] != '':
+            house_to_update.floorplan = request.form["floorplan"]
         
         db.session.commit()
         return redirect(url_for('home'))
     
     house_id = request.args.get('id')
     house_selected = db.get_or_404(house, house_id)
-    return render_template("prop_edit_rating.html", house=house_selected) #This is where you would edit the property details
+    return render_template("update.html", house=house_selected) #This is where you would edit the property details
 
 if __name__ == "__main__":
     app.run(debug=True)
