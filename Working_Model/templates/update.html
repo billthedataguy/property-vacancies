@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Editting Item in Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-12 jumbotron text-center">
+      <h2>Editing Existing Property Address Listing</h2>
+    </div>
+  </div>
+
+  <div class="row">  
+    <div class="col-md-3">
+      <!-- Empty Location -->
+    </div>   
+    <div class="col-md-6">
+      <div class="well">
+        <form action="{{ url_for('edit') }}" method="POST">
+          <a class="btn btn-primary" href="{{ url_for('home') }}" role="button">Go Back to Admin Page</a>
+          <h3>Property ID: {{house.id}}</h3><br>
+          <h4>the following inputs are recommended but not required</h4>
+          <input hidden="hidden" name="id" value="{{house.id}}" >
+          <!-- no label for hidden element --><br>
+          <input name="Address" type="text" placeholder={{house.Address}} >
+          <label>Property Address</label><br>
+          <input name="SQFT" type="text" placeholder= {{house.SQFT}} >
+          <label>Square Footage</label><br>          
+          <input name="Pic1" type="text" placeholder={{house.Pic1}} >
+          <label>Cover Photo</label><br>          
+          <input name="Pic2" type="text" placeholder={{house.Pic2}} >
+          <label>Second Photo</label><br>          
+          <input name="Pic3" type="text" placeholder={{house.Pic3}} >
+          <label>Third Photo</label><br>
+          <input name="Pic4" type="text" placeholder={{house.Pic4}} >
+          <label>Fourth Photo</label><br>
+          <input name="Pic5" type="text" placeholder={{house.Pic5}} >
+          <label>Last Available Image</label><br>
+          <input name="Floorplan" type="text" placeholder={{house.Floorplan}} >
+          <label>Floorplan Image</label><br>
+          <input name="Tour" type="text" placeholder={{house.Tour}} >
+          <label>Virtual Tour Link</label><br>
+          <input class="btn btn-success" type="submit" value="Commit Updates to this Property">
+        </form>
+      </div>
+    </div>
+      <div class="col-md-3">
+        <!-- Empty Location -->
+      </div>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+     <!-- Emoty Location -->
+    </div>  
+   <div class="col-md-10">
+     <div class="well text-center">
+     <h3>Thank You For Using The Library</h3>
+   </div>
+    <div class="col-md-1">
+     <!-- Emoty Location -->
+    </div>
+   </div>
+ </div>
+</body>
+
+</html>

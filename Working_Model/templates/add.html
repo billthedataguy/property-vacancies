@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Adding a New Listing to the Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+ 
+<body>
+  <div class="row">
+    <div class="col-md-12 jumbotron text-center">
+      <h2>Adding New Property Address Listing</h2>
+    </div>
+  </div>
+      
+  <div class="row">        
+    <div class="col-md-3">
+      <!-- Empty Location -->
+    </div>
+    <div class="col-md-6">
+      <div class="well">
+        <form action="{{ url_for('add') }}" method="POST">
+          <input name="id" type="text" />
+          <label>Property ID ( this input is mandatory to create a new property in the library )</label><br>
+          <h4>the following inputs are recommended but not required</h4>
+          <input name="Address" type="text" placeholder=" "/>
+          <label>Property Address</label><br>
+          <input name="SQFT" type="text" placeholder=" ">
+          <label>Square Footage</label><br>
+          <input name="Pic1" type="text" placeholder=" "/>
+          <label>Add Cover Photo</label><br>
+          <input name="Pic2" type="text" placeholder=" "/>
+          <label>Add Second Photo</label><br>
+          <input name="Pic3" type="text" placeholder=" "/>
+          <label>Add Third Photo</label><br>  
+          <input name="Pic4" type="text" placeholder=" "/>
+          <label>Add Fourth Photo</label><br>
+          <input name="Pic5" type="text" placeholder=" "/>
+          <label>Last Available Image</label><br>
+          <input name="Floorplan" type="text" placeholder=" "/>
+          <label>Floorplan Image</label><br>
+          <input name="Tour" type="text" placeholder=" "/>
+          <label>Virtual Tour Link</label><br>
+          <div class="well text-center">
+            <input class="btn btn-success" type="submit" value="Commit Listing to the Library"> ---Or--- 
+            <a class="btn btn-primary" href="{{ url_for('home') }}" role="button">Return to Admin Home Page</a>
+          </div>
+        </form>      
+      </div>
+    </div>        
+    <div class="col-md-3">
+      <!-- Emoty Location -->
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col-md-1">
+      <!-- Emoty Location -->
+    </div>
+    <div class="col-md-10">
+      <div class="well text-center">
+        <h3>Thank You For Using The Library</h3>
+      </div>
+    <div class="col-md-1">
+      <!-- Emoty Location -->
+    </div>
+  </div> 
+</body>
+
+</html>

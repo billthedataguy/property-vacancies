@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All Properties</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    
+    <div class="row">
+       <div class="col-md-12 jumbotron text-center">
+        <h2>Full Property List</h2>
+      </div>
+    </div>
+          
+    <div class="row">
+      <div class="col-md-2">
+        <!-- Emoty Location -->
+      </div>
+      <div class="col-md-8">
+        <div class="well text-center">
+        {% if houses == []: %}
+        <h1>Library is empty.</h1>
+        {% endif %}
+        <!-- <ul> -->
+        {% for house in houses %}
+          <li>
+            <!-- <a class="btn btn-outline-danger" href="{{ url_for('delete', id=house.id) }}" role="button">Delete</a> 
+            I tried to modify these links to buttons, but they don't seem to work inside a forloop-->
+            <a href="{{ url_for('edit', id=house.id) }}">Edit</a> -- Property ID: {{house.id}} --- Address: 
+            {{house.Address}} -- <a href="{{ url_for('delete', id=house.id) }}">Delete</a>          
+          </li>
+        {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-2">
+        <!-- Emoty Location -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+      <!-- Emoty Location -->
+      </div>  
+      <div class="col-md-8">
+        <div class="well text-center">
+          <a class="btn btn-primary" href="{{ url_for('add') }}" role="button">Add New Property to Library</a> --- Or ---
+          <a class="btn btn-success" href="{{ url_for('avail') }}" role="button">See Current Available Listings</a>
+        </div>
+      </div>
+      <div class="col-md-2">
+      <!-- Emoty Location -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+      <!-- Emoty Location -->
+      </div>  
+      <div class="col-md-10">
+        <div class="well text-center">
+        <h4>Thank You For Using The Library</h4>
+        </div>
+      </div>
+      <div class="col-md-1">
+      <!-- Emoty Location -->
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
+    
+    
+    
+    
