@@ -8,49 +8,43 @@ Gregory Michalak
 
 John Torgerson
 
+### Instructions
+1. Download a copy of the current availability report in realpage, and save file as `Avail.csv`
+2. Replace the existing file in repo directory.
+3. Using Jupyter notebook, run `Prop_Cleaner.ipynb`in entirety.
+4. In gitbash, run flask `main_prop.py` and copy displayedweb address for your local server
+5. In browser paste local server address in filepath
+6. Enter new data, edit existing data, and view currently available units with easy to read fields
+
 ### File Index
-* In folder, `Greg_Code`:
-    * In folder, `templates`:
-        `add.html` webpage for inputing data to the library
-        `edit_rating.html` webpage for editing a book in the library
-        `index.html` webpage to display the library
-        `prop_index.html` webpage for ... I'm not sure**
-`Untitled.ipynb`
-`All_Properties.db`
-`books-collection.db`
-`main.py`
-`mani_prop.py`
-`requirements.txt`
-* In folder, `sqlite_approach`
+* In folder `Instance`
+    `All_Properties.db`
+* In folder sqlite_approach
     `index.html`
     `script.js`
     `style.css`
-* In folder, `static`
-    * In folder, `css`
-* In folder, `templates`
-    `add.html` webpage for inputing data to the library
-    `edit_rating.html` webpage for editing a book in the library
-    `index.html` webpage to display the library
-    `prop_index.html` webpage for ... I'm not sure**
-`Cleaning.ipynb` this file contains pandas code to filter a PMS report to a list of upcoming and available residential units by their unique property id<br>
-`Avail_8.19.csv` this file is a real PMS software download we'll use to filter available residential units<br>
-`DUMMY_SHEET.csv` this file is a practice list of residential units and data files<br>
-`DUMMY_SHEET.xlsx` this file is a practice list of residential units and data files<br>
-`market_table_fake` this file is a practice list of residential units and data files<br>
+* In folder `static`
+    *In folder `css`
+        `reset.css`
+        `style.css`
+* In folder `templates` these are our working webpages for this database
+    `add.html` adds a new property and fields to the management library
+    `admin.html` full list of properties in the library
+    `listings.html` filtered list of currently available properties and their fields
+    `update.html` revises an existing property and fields  
+`DS_Store`
+`.gitignore`
+`All_Properties.db`
+`All_Properties.sqbpro`
+`Avail_8.19.csv` this is the real world working availability report for beta testing our filter
+`Avalable_Properties.xlsx` this is the cleaned ID list we use as our filter
+`main_prop.py` this is the python flask we run to manipulate the database locally
+`Prop_Cleaner.ipynb` this is the code you'll run to clean the real world avail report
 `properties.db`
 `properties.sqbpro`
-`public_site_test.html` empty webpage for testing a 2 part display combining data table and vacancy filter.
-`README.md` you are here<br> 
-`Vacancy Workflow Design.jpg` this file is an image of the workflow schematic to layout what we're designing<br>
-`Vacant xml raw text.rtf` this is a raw text file I figured we could use as the format is similar to json, which I believe we can now delete as well 
-
-### Notes
-
-JT 9/29/2024: The directory 'Templates' are updated html code derived from Greg's flask api code reorganized as well as additinal input lines added to prepare for possible product demos. We may want to use multiples for "photos" and there's probably more than one way to do that. for example if these are under a keyed column in a table we may need to number them with a limited number of columns, but if we're using something organized more like a json, the inputs could be limitless with no numbering system. Both have their pros and cons I think. Input from the team would be valuable. 
-
-GJM 9/25/2024: The directory 'Greg_Code' was added and contains source code for creating a SQLite database of properties and CRUD operations via Flask API. The HTML files associated with the webpage design are located in the 'templates' subdirectory, with the current version being 'prop_index'. Run main.py to deploy the API on a web browser.
-
-GJM 11/13/2024: A new version of "Greg_Code" was pushed this evening. No changes to the templates subdirectory. Prop_Cleaner.ipynb can ne used to clean the content of the property software output (currently Avail_8.19.csv), and the output is Available_Properties.xlsx. The main_prop.py file references Available_Properties.xlsx to get the list of properties it should display by finding the items the exist in both the avaialble properties and the full database, All_Proprties.db (SQlite DB).
+`README.md`
+`requirements.txt`
+`Vacancy Workflow Design.jpg` concept of idea
 
 ##### Initially we were looking at using something like Postgres and SQL, and we could potentially return to that, but for now we're going to make a first attempt at this using SQlite in hopes that the project runs smoother and quicker. We'll just have to see if the idea expands if we won't need more data table relations, and we may, as this PMS software contains a lot of other useful contact points we could utilize. 
 
