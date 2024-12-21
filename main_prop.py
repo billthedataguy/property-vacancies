@@ -75,24 +75,33 @@ def home():
 
     # READ ALL RECORDS
     # Construct a query to select from the database. Returns the rows in the database
-    # result = db.session.execute(db.select(house).filter(house.id.in_(prop_list)).order_by(house.id))
     result = db.session.execute(db.select(house).order_by(house.id))
+
     # Use .scalars() to get the elements rather than entire rows from the database
-    
     all_houses = result.scalars().all()
     
     return render_template("admin.html", houses=all_houses)
+
+@app.route('/all')
+def all():
+
+    # READ ALL RECORDS
+    # Construct a query to select from the database. Returns the rows in the database
+    result = db.session.execute(db.select(house).order_by(house.id))
+
+    # Use .scalars() to get the elements rather than entire rows from the database
+    all_houses = result.scalars().all()
+    
+    return render_template("all.html", houses=all_houses)
 
 @app.route('/avail')
 def avail():
 
     # READ ALL RECORDS
-    # Construct a query to select from the database. Returns the rows in the database
-    # result = db.session.execute(db.select(house).order_by(house.id))
+    # Construct a query to select from the database. Returns the rows in the filtered database
     result = db.session.execute(db.select(house).filter(house.id.in_(prop_list)).order_by(house.id))
-    # results = db.session.execute(db.select(Prop).order_by(Prop.id))
+
     # Use .scalars() to get the elements rather than entire rows from the database
-    
     all_houses = result.scalars().all()
 
     return render_template("listings.html", houses=all_houses) #This is the Admin page - where you can view and edit/add all properties
@@ -132,8 +141,8 @@ def delete():
     db.session.commit()
     return redirect(url_for('home')) #Go back to homepage after deleting an item
 
-@app.route("/edit", methods=["GET", "POST"])
-def edit():
+@app.route("/update", methods=["GET", "POST"])
+def update():
     if request.method == "POST":
         # UPDATE RECORD
         house_id = request.form["id"]
@@ -172,6 +181,47 @@ def edit():
     house_id = request.args.get('id')
     house_selected = db.get_or_404(house, house_id)
     return render_template("update.html", house=house_selected) #This is where you would edit the property details
+
+@app.route("/view", methods=["GET", "POST"])
+def view():
+    if request.method == "POST":
+        # UPDATE RECORD
+        house_id = request.form["id"]
+        house_to_update = db.get_or_404(house, house_id) #This house already exists, so we can do nothing to the field if it is blank
+        
+        if request.form['SQFT'] != '':
+            house_to_update.SQFT = request.form["SQFT"]
+        
+        if request.form['Address'] != '':
+            house_to_update.Address = request.form["Address"]
+
+        if request.form['Pic1'] != '':
+            house_to_update.Pic1 = request.form["Pic1"]
+        
+        if request.form['Pic2'] != '':
+            house_to_update.Pic2 = request.form["Pic2"]
+    
+        if request.form['Pic3'] != '':
+            house_to_update.Pic3 = request.form["Pic3"]
+        
+        if request.form['Pic4'] != '':
+            house_to_update.Pice4 = request.form["Pic4"]
+        
+        if request.form['Pic5'] != '':
+            house_to_update.Pic5 = request.form["Pic5"]
+
+        if request.form['Floorplan'] != '':
+            house_to_update.Floorplan = request.form["Floorplan"]
+
+        if request.form['Tour'] != '':
+            house_to_update.Tour = request.form["Tour"]
+        
+        db.session.commit()
+        return redirect(url_for('home'))
+    
+    house_id = request.args.get('id')
+    house_selected = db.get_or_404(house, house_id)
+    return render_template("view.html", house=house_selected) #This is where you would examine individual property details
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Viewing Item in Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-12 jumbotron text-center">
+      <h2>Existing Property Address Listing</h2>
+    </div>
+  </div>
+
+  <div class="row">  
+    <div class="col-md-3">
+      <!-- Empty Location -->
+    </div>   
+    <div class="col-md-6">
+      <div class="well">
+        <form action="{{ url_for('update') }}" method="POST">
+          <a class="btn btn-primary" href="{{ url_for('update', id=house.id) }}" role="button">Update this Property</a>
+          <a class="btn btn-primary" href="{{ url_for('home') }}" role="button">Go Back to Admin Page</a>
+          <h3>Property ID: {{house.id}}</h3><br>
+          <h4>Address: {{house.Address}}</h4>
+          <h4>Square footage: {{house.SQFT}}</h4>
+          <h4>Cover Photo: {{house.Pic1}}</h4>
+          <h4>Photo 2: {{house.Pic2}}</h4>
+          <h4>Photo 3: {{house.Pic3}}</h4>
+          <h4>Photo 4: {{house.Pic4}}</h4>
+          <h4>Last Photo: {{house.Pic5}}</h4>
+          <h4>Floorplan: {{house.Floorplan}}</h4>
+          <h4>Video Tour: {{house.Tour}}</h4>
+          <a class="btn btn-danger" href="{{ url_for('delete', id=house.id) }}" role="button">Delete this Property from Library</a>
+          
+        </form>
+      </div>
+    </div>
+      <div class="col-md-3">
+        <!-- Empty Location -->
+      </div>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+     <!-- Emoty Location -->
+    </div>  
+   <div class="col-md-10">
+     <div class="well text-center">
+     <h4>Thank You For Using The Library</h4>
+   </div>
+    <div class="col-md-1">
+     <!-- Emoty Location -->
+    </div>
+   </div>
+ </div>
+</body>
+
+</html>

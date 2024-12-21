@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Complete Listing Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h2>All Properties - Full Details</h2>
+      </div>
+    </div>
+
+    
+      
+    <div class="row">
+      {% if houses == []: %}
+      <p>All Properties Currently Occupied</p>
+      {% endif %}
+      <ul>
+      {% for house in houses %}
+        <div class="col-md-3">
+          <div class="well">
+            {{house.id}}<a href="{{ url_for('view', id=house.id) }}"> View</a> | <a href="{{ url_for('update', id=house.id) }}">Update</a> | <a href="{{ url_for('delete', id=house.id) }}">Delete</a>
+            <h6>
+              Address: {{house.Address}}<br>
+              Square Footage: {{house.SQFT}}<br>
+              <u>Images:</u><br>
+              {{house.Pic1}}<br>
+              {{house.Pic2}}<br>
+              {{house.Pic3}}<br>
+              {{house.Pic4}}<br>
+              {{house.Pic5}}<br>
+              Floorplan: {{house.Floorplan}}<br>
+              Video Tour: {{house.Tour}}<br>
+            </h6>
+          </div>
+        </div>
+      {% endfor %}
+      </ul>
+      </div>
+      <div class="row">
+      <div class="col-md-1">
+
+      </div>  
+     <div class="col-md-10">
+        <div class="well text-center">
+          <a class="btn btn-primary" href="{{ url_for('add') }}" role="button">Add New Property Listing</a> --- Or ---
+          <a class="btn btn-primary" href="{{ url_for('home') }}" role="button">Return to Admin Page</a>  
+        </div>
+      </div>
+      <div class="col-md-1">
+      
+      </div>
+     </div>
+    </div>
+  </div>
+</body>
+
+</html>

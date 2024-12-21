@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Editting Item in Library</title>
+  <title>Updating Item in Library</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="row">
     <div class="col-md-12 jumbotron text-center">
-      <h2>Editing Existing Property Address Listing</h2>
+      <h2>Updating Existing Property Address Listing</h2>
     </div>
   </div>
 
@@ -22,8 +22,9 @@
     </div>   
     <div class="col-md-6">
       <div class="well">
-        <form action="{{ url_for('edit') }}" method="POST">
+        <form action="{{ url_for('update') }}" method="POST">
           <a class="btn btn-primary" href="{{ url_for('home') }}" role="button">Go Back to Admin Page</a>
+          <a class="btn btn-primary" href="{{ url_for('view') }}" role="button">View Full Details</a>
           <h3>Property ID: {{house.id}}</h3><br>
           <h4>the following inputs are recommended but not required</h4>
           <input hidden="hidden" name="id" value="{{house.id}}" >

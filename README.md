@@ -9,7 +9,7 @@ Gregory Michalak
 John Torgerson
 
 ### Instructions
-1. Download a copy of the current availability report in realpage, and save file as `Avail.csv`
+1. Download a copy of the current availability report in realpage, and save file as `Vacancy.csv`
 2. Replace the existing file in repo directory.
 3. Using Jupyter notebook, run `Prop_Cleaner.ipynb`in entirety.
 4. In gitbash, run flask `main_prop.py` and copy displayedweb address for your local server
@@ -30,8 +30,10 @@ John Torgerson
 * In folder `templates` these are our working webpages for this database
     `add.html` adds a new property and fields to the management library
     `admin.html` full list of properties in the library
+    `all.html` full list of properties expanded to full details
     `listings.html` filtered list of currently available properties and their fields
-    `update.html` revises an existing property and fields  
+    `update.html` revises an existing property and fields
+    `view.html` full view of single property with full details  
 `DS_Store`
 `.gitignore`
 `All_Properties.db`
