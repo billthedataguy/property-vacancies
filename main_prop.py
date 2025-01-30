@@ -39,6 +39,9 @@ db.init_app(app)
 class house(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
     SQFT: Mapped[str] = mapped_column(String(20), nullable=True)
+    # Desc: Mapped[str] = mapped_column(String(20), nullable=True)
+    # B: Mapped[str] = mapped_column(String(20), nullable=True)
+    # Ba: Mapped[str] = mapped_column(String(20), nullable=True)
     Address: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic1: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic2: Mapped[str] = mapped_column(String(20), nullable=True)
@@ -51,6 +54,9 @@ class house(db.Model):
 class Prop(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
     SQFT: Mapped[str] = mapped_column(String(20), nullable=True)
+    Desc: Mapped[str] = mapped_column(String(20), nullable=True)
+    B: Mapped[str] = mapped_column(String(20), nullable=True)
+    Ba: Mapped[str] = mapped_column(String(20), nullable=True)
     Address: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic1: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic2: Mapped[str] = mapped_column(String(20), nullable=True)
@@ -114,8 +120,11 @@ def add():
         
         new_house = house(
             id=request.form["id"],
-            SQFT=request.form["SQFT"],
             Address=request.form["Address"],
+            SQFT=request.form["SQFT"],
+            Desc=request.form["Desc"],
+            B=request.form["B"],
+            Ba=request.form["Ba"],
             Pic1=request.form["Pic1"],
             Pic2=request.form["Pic2"],
             Pic3=request.form["Pic3"],
@@ -150,6 +159,15 @@ def update():
         
         if request.form['SQFT'] != '':
             house_to_update.SQFT = request.form["SQFT"]
+
+        if request.form['Desc'] != '':
+            house_to_update.Desc = request.form["Desc"]
+
+        if request.form['B'] != '':
+            house_to_update.B = request.form["B"]
+
+        if request.form['Ba'] != '':
+            house_to_update.Ba = request.form["Ba"]
         
         if request.form['Address'] != '':
             house_to_update.Address = request.form["Address"]
@@ -164,7 +182,7 @@ def update():
             house_to_update.Pic3 = request.form["Pic3"]
         
         if request.form['Pic4'] != '':
-            house_to_update.Pice4 = request.form["Pic4"]
+            house_to_update.Pic4 = request.form["Pic4"]
         
         if request.form['Pic5'] != '':
             house_to_update.Pic5 = request.form["Pic5"]
@@ -191,6 +209,15 @@ def view():
         
         if request.form['SQFT'] != '':
             house_to_update.SQFT = request.form["SQFT"]
+
+        if request.form['Desc'] != '':
+            house_to_update.Desc = request.form["Desc"]
+
+        if request.form['B'] != '':
+            house_to_update.B = request.form["B"]
+
+        if request.form['Ba'] != '':
+            house_to_update.Ba = request.form["Ba"]
         
         if request.form['Address'] != '':
             house_to_update.Address = request.form["Address"]
@@ -205,7 +232,7 @@ def view():
             house_to_update.Pic3 = request.form["Pic3"]
         
         if request.form['Pic4'] != '':
-            house_to_update.Pice4 = request.form["Pic4"]
+            house_to_update.Pic4 = request.form["Pic4"]
         
         if request.form['Pic5'] != '':
             house_to_update.Pic5 = request.form["Pic5"]

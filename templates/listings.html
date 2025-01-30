@@ -18,8 +18,6 @@
       </div>
     </div>
 
-    
-      
     <div class="row">
       {% if houses == []: %}
       <p>All Properties Currently Occupied</p>
@@ -31,6 +29,9 @@
             <h5>{{house.id}}</h5>
             <h6>
               Address: {{house.Address}}<br>
+              Description: {{house.Desc}}<br>
+              Bedrooms: {{house.B}}<br>
+              Baths: {{house.Ba}}<br>
               Square Footage: {{house.SQFT}}<br>
               <u>Images:</u><br>
               {{house.Pic1}}<br>
