@@ -39,9 +39,6 @@ db.init_app(app)
 class house(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
     SQFT: Mapped[str] = mapped_column(String(20), nullable=True)
-    # Desc: Mapped[str] = mapped_column(String(20), nullable=True)
-    # B: Mapped[str] = mapped_column(String(20), nullable=True)
-    # Ba: Mapped[str] = mapped_column(String(20), nullable=True)
     Address: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic1: Mapped[str] = mapped_column(String(20), nullable=True)
     Pic2: Mapped[str] = mapped_column(String(20), nullable=True)
@@ -50,6 +47,9 @@ class house(db.Model):
     Pic5: Mapped[str] = mapped_column(String(20), nullable=True)
     Floorplan: Mapped[str] = mapped_column(String(20), nullable=True)
     Tour: Mapped[str] = mapped_column(String(20), nullable=True)
+    Desc: Mapped[str] = mapped_column(String(20), nullable=True)
+    B: Mapped[str] = mapped_column(String(20), nullable=True)
+    Ba: Mapped[str] = mapped_column(String(20), nullable=True)
 
 class Prop(db.Model):
     id: Mapped[str] = mapped_column(String(20), primary_key=True)
